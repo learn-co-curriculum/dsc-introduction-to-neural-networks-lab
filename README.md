@@ -5,7 +5,7 @@
 
 Congratulations, you made it to your first lab! In this lab, you'll practice everything you have learned during the lecture. We know there is quite a bit of math involved, but don't worry! Using Python and trying things out yourself will actually make a lot of things much more clear! Before we start, let's load some necessary libraries so we can import our data.
 
-## Objectives:
+## Objectives
 
 You will be able to:
 * Import images using Keras
@@ -258,7 +258,7 @@ train_labels_final[:,240]
 
 This seems to be correct! Feel free to try out other indices as well.
 
-## Lastly, you'll want to standardize the data.
+## Lastly, you'll want to standardize the data
 
 Remember that each RGB pixel in an image takes a value between 0 and 255. In Deep Learning, it is very common to standardize and/or center your data set. For images, a common thing that is done is to make sure each pixel value is between 0 and 1. This can be done by dividing the entire matrix by 255. Do this here for the `train_img_unrow` and `test_img_unrow`.
 
