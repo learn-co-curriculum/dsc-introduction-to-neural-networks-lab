@@ -18,18 +18,12 @@ As usual, we'll start by importing the necessary packages that we'll use in this
 !pip install pillow
 ```
 
-    Requirement already satisfied: pillow in /Users/cnuno/anaconda3/envs/learn-env/lib/python3.6/site-packages (6.0.0)
-
-
 
 ```python
 from keras.preprocessing.image import ImageDataGenerator, array_to_img, img_to_array, load_img
 import numpy as np
 import os
 ```
-
-    Using TensorFlow backend.
-
 
 In this lab, you'll get a bunch of images, and the purpose is to correctly classify these images as "Santa", meaning that Santa is present on the image or "not Santa" meaning that something else is in the images. 
 
@@ -57,10 +51,6 @@ train_generator = ImageDataGenerator().flow_from_directory(
 train_images, train_labels = next(train_generator)
 test_images, test_labels = next(test_generator)
 ```
-
-    Found 132 images belonging to 2 classes.
-    Found 790 images belonging to 2 classes.
-
 
 ## Inspecting and preparing the data
 
