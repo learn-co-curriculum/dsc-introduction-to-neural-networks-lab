@@ -15,6 +15,16 @@ As usual, we'll start by importing the necessary packages that we'll use in this
 
 
 ```python
+!pip install pillow
+```
+
+    Requirement already satisfied: pillow in /Users/lore.dirick/anaconda3/lib/python3.6/site-packages (5.0.0)
+    [33mYou are using pip version 18.1, however version 19.1.1 is available.
+    You should consider upgrading via the 'pip install --upgrade pip' command.[0m
+
+
+
+```python
 from keras.preprocessing.image import ImageDataGenerator, array_to_img, img_to_array, load_img
 import numpy as np
 import os
@@ -70,7 +80,7 @@ array_to_img(train_images[10])
 
 
 
-![png](index_files/index_11_0.png)
+![png](index_files/index_12_0.png)
 
 
 
@@ -82,7 +92,7 @@ array_to_img(train_images[130])
 
 
 
-![png](index_files/index_12_0.png)
+![png](index_files/index_13_0.png)
 
 
 
@@ -240,7 +250,7 @@ array_to_img(train_images[240])
 
 
 
-![png](index_files/index_35_0.png)
+![png](index_files/index_36_0.png)
 
 
 
