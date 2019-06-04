@@ -15,13 +15,19 @@ As usual, we'll start by importing the necessary packages that we'll use in this
 
 
 ```python
+!pip install pillow
+```
+
+    Requirement already satisfied: pillow in /Users/cnuno/anaconda3/envs/learn-env/lib/python3.6/site-packages (6.0.0)
+
+
+
+```python
 from keras.preprocessing.image import ImageDataGenerator, array_to_img, img_to_array, load_img
 import numpy as np
 import os
 ```
 
-    /Users/matthew.mitchell/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
-      from ._conv import register_converters as _register_converters
     Using TensorFlow backend.
 
 
