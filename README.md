@@ -3,7 +3,7 @@
 
 ## Introduction
 
-Congratulations, you made it to your first lab! In this lab, you'll practice everything you have learned during the lecture. We know there is quite a bit of math involved, but don't worry! Using Python and trying things out yourself will actually make a lot of things much more clear! Before we start, let's load some necessary libraries so we can import our data.
+In this lab, you'll practice everything you have learned during the lecture. We know there is quite a bit of math involved, but don't worry! Using Python and trying things out yourself will actually make a lot of things much more clear! Before we start, let's load some necessary libraries so we can import our data.
 
 ## Objectives
 
@@ -29,7 +29,7 @@ In this lab, you'll get a bunch of images, and the purpose is to correctly class
 
 If you have a look at this github repository, you'll notice that the images are simply stored in .jpeg-files and stored under the folder `/data`. Luckily, `keras` had great modules that make importing images stored in this type of format easy. We'll do this for you in the code below.
 
-The images in the `/data` folder have various resultions. We will reshape them so they are all have 64 x 64 pixels.
+The images in the `/data` folder have various resolutions. We will reshape them so they are all have 64 x 64 pixels.
 
 
 ```python
@@ -124,7 +124,7 @@ train_labels #Run this block of code; no need to edit
 
 Looking at this, it's clear that for each observation (or image), train_labels doesn't simply have an output of 1 or 0, but a pair either `[0,1]` or `[1,0]`.
 
-Having this information, we still don't know which pair correcponds with `santa` versus `not_santa`. Luckily, what this was stored using `keras.preprocessing_image`, and you can get more info using the command `train_generator.class_indices`.
+Having this information, we still don't know which pair corresponds with `santa` versus `not_santa`. Luckily, what this was stored using `keras.preprocessing_image`, and you can get more info using the command `train_generator.class_indices`.
 
 
 ```python
@@ -185,7 +185,7 @@ In what follows, we'll work with `train_img_final`, `test_img_final`, `train_lab
 
 ## Math recap
 
-Now we can go ahead and build our own basic logistic regression-based neural network to disctinguish images with Santa from images without Santa. You've seen in the lecture that logistic regression can actually be represented a a very simple neural network.
+Now we can go ahead and build our own basic logistic regression-based neural network to distinguish images with Santa from images without Santa. You've seen in the lecture that logistic regression can actually be represented a very simple neural network.
 
 Remember that we defined that, for each $x^{(i)}$:
 
@@ -256,7 +256,7 @@ $$ \frac{dJ(w,b)}{db} = \displaystyle\frac{1}{l}\displaystyle\sum^l_{i=1} \frac{
 
 
 ```python
-dw, db, cost = #Your code here; use your propogation function to return d2, db and the associated cost
+dw, db, cost = #Your code here; use your propagation function to return d2, db and the associated cost
 ```
 
 
@@ -279,7 +279,7 @@ Note that this `optimization` function also takes in the propagation function. I
 
 
 ```python
-#Complete the function below using your propogation function to define dw, db and cost. 
+#Complete the function below using your propagation function to define dw, db and cost. 
 #Then use the formula above to update w and b in the optimization function.
 def optimization(w, b, x, y, num_iterations, learning_rate, print_cost = False):
     
