@@ -21,7 +21,7 @@ As usual, we'll start by importing the necessary packages that we'll use in this
     Requirement already satisfied: pillow in /Users/lore.dirick/anaconda3/lib/python3.6/site-packages (5.0.0)
     [33mYou are using pip version 18.1, however version 19.1.1 is available.
     You should consider upgrading via the 'pip install --upgrade pip' command.[0m
-
+    
 
 
 ```python
@@ -33,13 +33,13 @@ import os
     /Users/matthew.mitchell/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
       from ._conv import register_converters as _register_converters
     Using TensorFlow backend.
-
+    
 
 In this lab, you'll get a bunch of images, and the purpose is to correctly classify these images as "Santa", meaning that Santa is present on the image or "not Santa" meaning that something else is in the images. 
 
 If you have a look at this github repository, you'll notice that the images are simply stored in .jpeg-files and stored under the folder `/data`. Luckily, `keras` had great modules that make importing images stored in this type of format easy. We'll do this for you in the code below.
 
-The images in the `/data` folder have various resultions. We will reshape them so they are all have 64 x 64 pixels.
+The images in the `/data` folder have various resolutions. We will reshape them so they are all have 64 x 64 pixels.
 
 
 ```python
@@ -64,7 +64,7 @@ test_images, test_labels = next(test_generator)
 
     Found 132 images belonging to 2 classes.
     Found 790 images belonging to 2 classes.
-
+    
 
 ## Inspecting and preparing the data
 
@@ -80,7 +80,7 @@ array_to_img(train_images[10])
 
 
 
-![png](index_files/index_12_0.png)
+![png](output_12_0.png)
 
 
 
@@ -92,7 +92,7 @@ array_to_img(train_images[130])
 
 
 
-![png](index_files/index_13_0.png)
+![png](output_13_0.png)
 
 
 
@@ -112,7 +112,7 @@ print(np.shape(test_labels))
     (790, 2)
     (132, 64, 64, 3)
     (132, 2)
-
+    
 
 ##  `train_images` and `test_images`
 
@@ -187,7 +187,7 @@ train_labels
 
 Looking at this, it's clear that for each observation (or image), train_labels doesn't simply have an output of 1 or 0, but a pair either `[0,1]` or `[1,0]`.
 
-Having this information, we still don't know which pair correcponds with `santa` versus `not_santa`. Luckily, what this was stored using `keras.preprocessing_image`, and you can get more info using the command `train_generator.class_indices`.
+Having this information, we still don't know which pair corresponds with `santa` versus `not_santa`. Luckily, what this was stored using `keras.preprocessing_image`, and you can get more info using the command `train_generator.class_indices`.
 
 
 ```python
@@ -250,7 +250,7 @@ array_to_img(train_images[240])
 
 
 
-![png](index_files/index_36_0.png)
+![png](output_36_0.png)
 
 
 
@@ -293,7 +293,7 @@ In what follows, we'll work with `train_img_final`, `test_img_final`, `train_lab
 
 ## Math recap
 
-Now we can go ahead and build our own basic logistic regression-based neural network to disctinguish images with Santa from images without Santa. You've seen in the lecture that logistic regression can actually be represented a a very simple neural network.
+Now we can go ahead and build our own basic logistic regression-based neural network to distinguish images with Santa from images without Santa. You've seen in the lecture that logistic regression can actually be represented as a very simple neural network.
 
 Remember that we defined that, for each $x^{(i)}$:
 
@@ -393,7 +393,7 @@ print(cost)
      [-0.07262596]]
     -0.01139240506329114
     0.6931471805599452
-
+    
 
 ## Optimization
 
@@ -433,7 +433,7 @@ w, b, costs = optimization(w, b, train_img_final, train_labels_final, num_iterat
     Cost after iteration 50: 0.675005
     Cost after iteration 100: 0.668414
     Cost after iteration 150: 0.662114
-
+    
 
 ## Make label predictions: Santa or not?
 
@@ -553,7 +553,7 @@ output = model(train_img_final, train_labels_final, test_img_final, test_img_fin
     Cost after iteration 1950: 0.161424
     train accuracy: 96.9620253164557 %
     test accuracy: 55.535686593506135 %
-
+    
 
 ## Summary
 
