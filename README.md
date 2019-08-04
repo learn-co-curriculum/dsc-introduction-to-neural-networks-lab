@@ -24,11 +24,6 @@ As usual, we'll start by importing the necessary packages that we'll use in this
 !pip install pillow
 ```
 
-    Requirement already satisfied: pillow in /Users/lore.dirick/anaconda3/lib/python3.6/site-packages (5.0.0)
-    [33mYou are using pip version 18.1, however version 19.1.1 is available.
-    You should consider upgrading via the 'pip install --upgrade pip' command.[0m
-
-
 
 ```python
 from keras.preprocessing.image import ImageDataGenerator, array_to_img, img_to_array, load_img
@@ -44,16 +39,14 @@ import numpy as np
 import os
 ```
 
-    /Users/matthew.mitchell/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
-      from ._conv import register_converters as _register_converters
     Using TensorFlow backend.
 
 
 In this lab, you'll get a bunch of images, and the purpose is to correctly classify these images as "Santa", meaning that Santa is present on the image or "not Santa" meaning that something else is in the images. 
 
-If you have a look at this github repository, you'll notice that the images are simply stored in .jpeg-files and stored under the folder `/data`. Luckily, `keras` had great modules that make importing images stored in this type of format easy. We'll do this for you in the code below.
+If you have a look at this github repository, you'll notice that the images are simply stored in .jpeg-files and stored under the folder `/data`. Luckily, `keras` has great modules that make importing images stored in this type of format easy. We'll do this for you in the code below.
 
-The images in the `/data` folder have various resolutions. We will reshape them so they are all have 64 x 64 pixels.
+The images in the `/data` folder have various resolutions. We will reshape them so they are all 64 x 64 pixels.
 
 
 ```python
@@ -261,19 +254,19 @@ train_labels
 
 
 
-    array([[1., 0.],
-           [1., 0.],
+    array([[0., 1.],
+           [0., 1.],
            [0., 1.],
            ...,
-           [0., 1.],
            [1., 0.],
-           [0., 1.]], dtype=float32)
+           [0., 1.],
+           [1., 0.]], dtype=float32)
 
 
 
 Looking at this, it's clear that for each observation (or image), train_labels doesn't simply have an output of 1 or 0, but a pair either `[0,1]` or `[1,0]`.
 
-Having this information, we still don't know which pair corresponds with `santa` versus `not_santa`. Luckily, what this was stored using `keras.preprocessing_image`, and you can get more info using the command `train_generator.class_indices`.
+Having this information, we still don't know which pair corresponds with `santa` versus `not_santa`. Luckily, this was stored using `keras.preprocessing_image`, and you can get more info using the command `train_generator.class_indices`.
 
 
 ```python
@@ -390,7 +383,7 @@ train_labels_final[:,240]
 
 
 
-    array([0.], dtype=float32)
+    array([1.], dtype=float32)
 
 
 
@@ -427,7 +420,7 @@ In what follows, we'll work with `train_img_final`, `test_img_final`, `train_lab
 
 ## Math recap
 
-Now we can go ahead and build our own basic logistic regression-based neural network to distinguish images with Santa from images without Santa. You've seen in the lecture that logistic regression can actually be represented a very simple neural network.
+Now we can go ahead and build our own basic logistic regression-based neural network to distinguish images with Santa from images without Santa. You've seen in the lecture that logistic regression can actually be represented as a very simple neural network.
 
 Remember that we defined that, for each $x^{(i)}$:
 
