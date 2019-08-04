@@ -3,7 +3,7 @@
 
 ## Introduction
 
-Congratulations, you made it to your first lab! In this lab, you'll practice everything you have learned during the lecture. We know there is quite a bit of math involved, but don't worry! Using Python and trying things out yourself will actually make a lot of things much more clear! Before we start, let's load some necessary libraries so we can import our data.
+In this lab, you'll practice everything you have learned during the lecture. We know there is quite a bit of math involved, but don't worry! Using Python and trying things out yourself will actually make a lot of things much more clear! Before we start, let's load some necessary libraries so we can import our data.
 
 ## Objectives
 
@@ -18,11 +18,6 @@ As usual, we'll start by importing the necessary packages that we'll use in this
 !pip install pillow
 ```
 
-    Requirement already satisfied: pillow in /Users/lore.dirick/anaconda3/lib/python3.6/site-packages (5.0.0)
-    [33mYou are using pip version 18.1, however version 19.1.1 is available.
-    You should consider upgrading via the 'pip install --upgrade pip' command.[0m
-    
-
 
 ```python
 from keras.preprocessing.image import ImageDataGenerator, array_to_img, img_to_array, load_img
@@ -30,16 +25,14 @@ import numpy as np
 import os
 ```
 
-    /Users/matthew.mitchell/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
-      from ._conv import register_converters as _register_converters
     Using TensorFlow backend.
-    
+
 
 In this lab, you'll get a bunch of images, and the purpose is to correctly classify these images as "Santa", meaning that Santa is present on the image or "not Santa" meaning that something else is in the images. 
 
-If you have a look at this github repository, you'll notice that the images are simply stored in .jpeg-files and stored under the folder `/data`. Luckily, `keras` had great modules that make importing images stored in this type of format easy. We'll do this for you in the code below.
+If you have a look at this github repository, you'll notice that the images are simply stored in .jpeg-files and stored under the folder `/data`. Luckily, `keras` has great modules that make importing images stored in this type of format easy. We'll do this for you in the code below.
 
-The images in the `/data` folder have various resolutions. We will reshape them so they are all have 64 x 64 pixels.
+The images in the `/data` folder have various resolutions. We will reshape them so they are all 64 x 64 pixels.
 
 
 ```python
@@ -64,7 +57,7 @@ test_images, test_labels = next(test_generator)
 
     Found 132 images belonging to 2 classes.
     Found 790 images belonging to 2 classes.
-    
+
 
 ## Inspecting and preparing the data
 
@@ -80,7 +73,7 @@ array_to_img(train_images[10])
 
 
 
-![png](output_12_0.png)
+![png](index_files/index_12_0.png)
 
 
 
@@ -92,7 +85,7 @@ array_to_img(train_images[130])
 
 
 
-![png](output_13_0.png)
+![png](index_files/index_13_0.png)
 
 
 
@@ -112,7 +105,7 @@ print(np.shape(test_labels))
     (790, 2)
     (132, 64, 64, 3)
     (132, 2)
-    
+
 
 ##  `train_images` and `test_images`
 
@@ -175,19 +168,19 @@ train_labels
 
 
 
-    array([[1., 0.],
-           [1., 0.],
+    array([[0., 1.],
+           [0., 1.],
            [0., 1.],
            ...,
-           [0., 1.],
            [1., 0.],
-           [0., 1.]], dtype=float32)
+           [0., 1.],
+           [1., 0.]], dtype=float32)
 
 
 
 Looking at this, it's clear that for each observation (or image), train_labels doesn't simply have an output of 1 or 0, but a pair either `[0,1]` or `[1,0]`.
 
-Having this information, we still don't know which pair corresponds with `santa` versus `not_santa`. Luckily, what this was stored using `keras.preprocessing_image`, and you can get more info using the command `train_generator.class_indices`.
+Having this information, we still don't know which pair corresponds with `santa` versus `not_santa`. Luckily, this was stored using `keras.preprocessing_image`, and you can get more info using the command `train_generator.class_indices`.
 
 
 ```python
@@ -239,7 +232,7 @@ np.shape(test_labels_final)
 
 As a final sanity check, look at an image and the corresponding label, so we're sure that santa is indeed stored as `1`.
 
-- First, use `array_to_image` again on the original `train_images` with index 140 to look at this particular image.
+- First, use `array_to_image` again on the original `train_images` with index 240 to look at this particular image.
 - Use train_labels_final to get the 240th label.
 
 
@@ -250,7 +243,7 @@ array_to_img(train_images[240])
 
 
 
-![png](output_36_0.png)
+![png](index_files/index_36_0.png)
 
 
 
@@ -262,7 +255,7 @@ train_labels_final[:,240]
 
 
 
-    array([0.], dtype=float32)
+    array([1.], dtype=float32)
 
 
 
@@ -393,7 +386,7 @@ print(cost)
      [-0.07262596]]
     -0.01139240506329114
     0.6931471805599452
-    
+
 
 ## Optimization
 
@@ -433,7 +426,7 @@ w, b, costs = optimization(w, b, train_img_final, train_labels_final, num_iterat
     Cost after iteration 50: 0.675005
     Cost after iteration 100: 0.668414
     Cost after iteration 150: 0.662114
-    
+
 
 ## Make label predictions: Santa or not?
 
@@ -553,7 +546,7 @@ output = model(train_img_final, train_labels_final, test_img_final, test_img_fin
     Cost after iteration 1950: 0.161424
     train accuracy: 96.9620253164557 %
     test accuracy: 55.535686593506135 %
-    
+
 
 ## Summary
 
