@@ -27,9 +27,9 @@ import os
 
 In this lab, you'll get a bunch of images, and the purpose is to correctly classify these images as "Santa", meaning that Santa is present on the image or "not Santa" meaning that something else is in the images. 
 
-If you have a look at this github repository, you'll notice that the images are simply stored in .jpeg-files and stored under the folder `/data`. Luckily, `keras` had great modules that make importing images stored in this type of format easy. We'll do this for you in the code below.
+If you have a look at this github repository, you'll notice that the images are simply stored in .jpeg-files and stored under the folder `/data`. Luckily, `keras` has great modules that make importing images stored in this type of format easy. We'll do this for you in the code below.
 
-The images in the `/data` folder have various resolutions. We will reshape them so they are all have 64 x 64 pixels.
+The images in the `/data` folder have various resolutions. We will reshape them so they are all 64 x 64 pixels.
 
 
 ```python
@@ -124,7 +124,7 @@ train_labels #Run this block of code; no need to edit
 
 Looking at this, it's clear that for each observation (or image), train_labels doesn't simply have an output of 1 or 0, but a pair either `[0,1]` or `[1,0]`.
 
-Having this information, we still don't know which pair corresponds with `santa` versus `not_santa`. Luckily, what this was stored using `keras.preprocessing_image`, and you can get more info using the command `train_generator.class_indices`.
+Having this information, we still don't know which pair corresponds with `santa` versus `not_santa`. Luckily, this was stored using `keras.preprocessing_image`, and you can get more info using the command `train_generator.class_indices`.
 
 
 ```python
@@ -185,7 +185,7 @@ In what follows, we'll work with `train_img_final`, `test_img_final`, `train_lab
 
 ## Math recap
 
-Now we can go ahead and build our own basic logistic regression-based neural network to distinguish images with Santa from images without Santa. You've seen in the lecture that logistic regression can actually be represented a very simple neural network.
+Now we can go ahead and build our own basic logistic regression-based neural network to distinguish images with Santa from images without Santa. You've seen in the lecture that logistic regression can actually be represented as a very simple neural network.
 
 Remember that we defined that, for each $x^{(i)}$:
 
