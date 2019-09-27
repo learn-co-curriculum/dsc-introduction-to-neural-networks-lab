@@ -501,6 +501,7 @@ def model(x_train, y_train, x_test, y_test, num_iterations = 2000, learning_rate
 
 
 ```python
+# ⏰ Expect your code to take several minutes to run.
 output = model(train_img_final, train_labels_final, test_img_final, test_img_final, num_iterations = 2000, learning_rate = 0.005, print_cost = True)
 ```
 
