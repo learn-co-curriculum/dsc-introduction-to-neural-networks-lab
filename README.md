@@ -1,4 +1,3 @@
-
 # Introduction to Neural Networks - Lab
 
 ## Introduction
@@ -16,18 +15,8 @@ As usual, we'll start by importing the necessary packages that we'll use in this
 
 
 ```python
-!pip install pillow
-```
-
-
-```python
-# __SOLUTION__ 
-!pip install pillow
-```
-
-
-```python
-from keras.preprocessing.image import ImageDataGenerator, array_to_img, img_to_array, load_img
+from keras.preprocessing.image import ImageDataGenerator
+from tensorflow.keras.utils import array_to_img, img_to_array, load_img
 import numpy as np
 import os
 ```
@@ -35,19 +24,19 @@ import os
 
 ```python
 # __SOLUTION__ 
-from keras.preprocessing.image import ImageDataGenerator, array_to_img, img_to_array, load_img
+from keras.preprocessing.image import ImageDataGenerator
+from tensorflow.keras.utils import array_to_img, img_to_array, load_img
 import numpy as np
 import os
 ```
-
-    Using TensorFlow backend.
-
 
 In this lab, you'll import a bunch of images to correctly classify them as "Santa", meaning that Santa is present on the image or "not Santa" meaning that something else is in the images. 
 
 If you have a look at this GitHub repository, you'll notice that the images are simply stored in `.jpeg` files and stored under the folder `'/data'`. Luckily, `keras` has great modules that make importing images stored in this type of format easy. We'll do this for you in the cell below.
 
 The images in the `'/data'` folder have various resolutions. We will reshape them so they are all 64 x 64 pixels.
+
+Run the code as you see it below.
 
 
 ```python
@@ -116,7 +105,9 @@ array_to_img(train_images[10])
 
 
 
-![png](index_files/index_16_0.png)
+    
+![png](index_files/index_14_0.png)
+    
 
 
 
@@ -134,7 +125,9 @@ array_to_img(train_images[130])
 
 
 
-![png](index_files/index_18_0.png)
+    
+![png](index_files/index_16_0.png)
+    
 
 
 
@@ -265,13 +258,13 @@ train_labels
 
 
 
-    array([[0., 1.],
+    array([[1., 0.],
            [0., 1.],
-           [0., 1.],
-           ...,
            [1., 0.],
+           ...,
            [0., 1.],
-           [1., 0.]], dtype=float32)
+           [0., 1.],
+           [0., 1.]], dtype=float32)
 
 
 
@@ -381,7 +374,9 @@ array_to_img(train_images[240])
 
 
 
-![png](index_files/index_53_0.png)
+    
+![png](index_files/index_51_0.png)
+    
 
 
 
@@ -789,7 +784,7 @@ def model(x_train, y_train, x_test, y_test, num_iterations = 2000, learning_rate
 ```python
 # Run the model!
 # ⏰ Expect your code to take several minutes to run
-output = model(train_img_final, train_labels_final, test_img_final, 
+output = model(train_img_final, train_labels_final, test_img_final, test_labels_final,
                num_iterations=2000, learning_rate=0.005, print_cost=True)
 ```
 
@@ -797,7 +792,7 @@ output = model(train_img_final, train_labels_final, test_img_final,
 ```python
 # __SOLUTION__ 
 # ⏰ Expect your code to take several minutes to run
-output = model(train_img_final, train_labels_final, test_img_final, 
+output = model(train_img_final, train_labels_final, test_img_final, test_labels_final,
                num_iterations=2000, learning_rate=0.005, print_cost=True)
 ```
 
@@ -842,7 +837,7 @@ output = model(train_img_final, train_labels_final, test_img_final,
     Cost after iteration 1900: 0.163839
     Cost after iteration 1950: 0.161424
     train accuracy: 96.9620253164557 %
-    test accuracy: 55.535686593506135 %
+    test accuracy: 75.0 %
 
 
 ## Summary
