@@ -1,4 +1,3 @@
-
 # Introduction to Neural Networks - Lab
 
 ## Introduction
@@ -16,12 +15,8 @@ As usual, we'll start by importing the necessary packages that we'll use in this
 
 
 ```python
-!pip install pillow
-```
-
-
-```python
-from keras.preprocessing.image import ImageDataGenerator, array_to_img, img_to_array, load_img
+from keras.preprocessing.image import ImageDataGenerator
+from tensorflow.keras.utils import array_to_img, img_to_array, load_img
 import numpy as np
 import os
 ```
@@ -31,6 +26,8 @@ In this lab, you'll import a bunch of images to correctly classify them as "Sant
 If you have a look at this GitHub repository, you'll notice that the images are simply stored in `.jpeg` files and stored under the folder `'/data'`. Luckily, `keras` has great modules that make importing images stored in this type of format easy. We'll do this for you in the cell below.
 
 The images in the `'/data'` folder have various resolutions. We will reshape them so they are all 64 x 64 pixels.
+
+Run the code as you see it below.
 
 
 ```python
@@ -391,7 +388,7 @@ def model(x_train, y_train, x_test, y_test, num_iterations = 2000, learning_rate
 ```python
 # Run the model!
 # ⏰ Expect your code to take several minutes to run
-output = model(train_img_final, train_labels_final, test_img_final, 
+output = model(train_img_final, train_labels_final, test_img_final, test_labels_final,
                num_iterations=2000, learning_rate=0.005, print_cost=True)
 ```
 
